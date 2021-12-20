@@ -22,7 +22,7 @@ export default withAuth(
   config({
     server: {
       cors: {
-        origin: [FRONTEND_URL],
+        origin: [FRONTEND_URL, "http://localhost:3001/"],
         credentials: true,
       },
     },
