@@ -1,3 +1,5 @@
+import 'dotenv/config';
+
 /*
 Welcome to Keystone! This file is what keystone uses to start the app.
 
@@ -14,12 +16,13 @@ import { lists } from './schema';
 // Keystone auth is configured separately - check out the basic auth setup we are importing from our auth file.
 import { withAuth, session } from './auth';
 
+const FRONTEND_URL:string = process.env.FRONTEND_URL as string;
 export default withAuth(
   // Using the config function helps typescript guide you to the available options.
   config({
     server: {
       cors: {
-        origin: ["http://localhost:3001"],
+        origin: [FRONTEND_URL],
         credentials: true,
       },
     },
